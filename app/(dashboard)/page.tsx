@@ -8,22 +8,34 @@ export default function HomePage() {
     <main>
       {/* Hero */}
       <section className="py-20 bg-gray-50 dark:bg-[rgba(10,15,25,0.92)] dark:backdrop-blur-md dark:border-y dark:border-white/10">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold text-gray-900 tracking-tight sm:text-5xl md:text-6xl dark:text-slate-100">
-            Gold Money
-            <span className="block text-orange-500 dark:text-[#6ad0ff]">Anybody Earn MONEY</span>
-          </h1>
+        {/* ↓ 아래 섹션과 동일한 폭/패딩 */}
+        <div className="container mx-auto px-5">
+          {/* 모바일 세로, md부터 가로 */}
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-12">
+            {/* 왼쪽 */}
+            <div className="w-full md:w-1/2 text-center md:text-left">
+              <h1 className="text-4xl font-bold text-gray-900 tracking-tight sm:text-5xl md:text-6xl dark:text-slate-100">
+                Gold Money
+                <span className="block text-orange-500 dark:text-[#6ad0ff]">
+                  Anybody Earn MONEY
+                </span>
+              </h1>
 
-          <p className="mt-5 text-lg text-gray-600 max-w-2xl mx-auto dark:text-slate-300">
-            Anybody without special knowledge can earn money through BetFriend.<br />
-            Try it now!
-            Result will amaze you.
-          </p>
+              <p className="mt-5 text-lg text-gray-600 max-w-2xl mx-auto md:mx-0 dark:text-slate-300">
+                Anybody without special knowledge can earn money through BetFriend.<br />
+                Try it now!
+                Result will amaze you.
+              </p>
+            </div>
 
-          <div className="mt-10">
-            {/* 유튜브 카드에 다크 전용 유리감 */}
-            <div className="rounded-xl p-2 bg-white dark:bg-slate-900/40 border border-transparent dark:border-white/10 dark:shadow-[0_4px_20px_rgba(0,0,0,0.45)]">
-              <YouTubeEmbed videoId="dQw4w9WgXcQ" />
+            {/* 오른쪽 */}
+            <div className="w-full md:w-1/2">
+              <div className="rounded-xl p-2 bg-white dark:bg-slate-900/40 border border-transparent dark:border-white/10 dark:shadow-[0_4px_20px_rgba(0,0,0,0.45)]">
+                {/* 반응형 비율 고정 */}
+                <div className="relative w-full aspect-video overflow-hidden rounded-lg">
+                  <YouTubeEmbed videoId="dQw4w9WgXcQ" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
