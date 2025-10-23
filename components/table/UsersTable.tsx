@@ -17,7 +17,6 @@ import {
     Switch,
     Select,
     MenuItem,
-    Snackbar,
     Alert,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -25,6 +24,7 @@ import useSWR, { mutate } from "swr";
 import { EditIcon } from "lucide-react";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import { ConfirmDialog } from "@/components/ConfirmDialog";
+import { useSnackbar } from "../ui/providers/SnackbarContext";
 
 type User = {
     id: string;
@@ -56,11 +56,7 @@ export default function UsersTable({ isSuperAdmin = false }: any) {
 
     const [bulkDeleteOpen, setBulkDeleteOpen] = useState(false);
     const [selectedRows, setSelectedRows] = useState<User[]>([]);
-    const [snackbar, setSnackbar] = useState<{
-        open: boolean;
-        message: string;
-        severity: "success" | "error" | "info" | "warning";
-    }>({ open: false, message: "", severity: "success" });
+    const { showSnackbar } = useSnackbar();
 
     // Refresh
     const [isRefreshing, setIsRefreshing] = useState(false);
@@ -74,10 +70,6 @@ export default function UsersTable({ isSuperAdmin = false }: any) {
             setIsRefreshing(false);
         }
     }
-
-    const showSnackbar = (message: string, severity: "success" | "error" | "info" | "warning" = "success") => {
-        setSnackbar({ open: true, message, severity });
-    };
 
     // CREATE
     async function createUser(user: Partial<User>) {
@@ -513,22 +505,6 @@ export default function UsersTable({ isSuperAdmin = false }: any) {
                 onConfirm={handleConfirmBulkDelete}
                 onCancel={() => setBulkDeleteOpen(false)}
             />
-
-            <Snackbar
-                open={snackbar.open}
-                autoHideDuration={3000}
-                onClose={() => setSnackbar({ ...snackbar, open: false })}
-                anchorOrigin={{ vertical: "bottom", horizontal: "right" }} // 위치 설정
-            >
-                <Alert
-                    onClose={() => setSnackbar({ ...snackbar, open: false })}
-                    severity={snackbar.severity}
-                    sx={{ width: "100%" }}
-                >
-                    {snackbar.message}
-                </Alert>
-            </Snackbar>
-
         </>
     );
 }
