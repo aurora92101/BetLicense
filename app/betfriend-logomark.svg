@@ -1,0 +1,7 @@
+<!-- /public/images/brand/betfriend-logomark.svg -->
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- squircle 배경 -->
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="#18A9FF"/>
+  <!-- 단순하고 또렷한 'B' 느낌의 컷아웃 -->
+  <path fill="#FFFFFF" d="M52 34c-6.627 0-12 5.373-12 12v36c0 6.627 5.373 12 12 12h20c10.493 0 19-8.507 19-19 0-5.76-2.555-10.9-6.6-14.33C87.536 57.267 90 52.3 90 47c0-7.18-5.82-13-13-13H52zm7 17h16c3.866 0 7 3.134 7 7s-3.134 7-7 7H59V51zm0 23h16c5.523 0 10 4.477 10 10s-4.477 10-10 10H59V74z"/>
+</svg>
